@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             when {
                 expression {
-                    BRANCH_NAME === 'DEV'
+                    BRANCH_NAME == 'DEV'
                 }
             }
             steps {
