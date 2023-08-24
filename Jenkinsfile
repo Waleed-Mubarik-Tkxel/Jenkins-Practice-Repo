@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker { image 'php:8.2.8-alpine3.18' } }
     stages {
         stage('build') {
             steps {
@@ -9,7 +9,7 @@ pipeline {
 
         stage('production') {
             steps {
-                echo "Hurrah we are on prodcution!"
+                echo 'Hurrah we are on prodcution!'
             }
         }
     }
