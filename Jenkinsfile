@@ -8,7 +8,7 @@ pipeline {
         stage('build') {
             when {
                 expression {
-                    BRANCH_NAME == 'DEV'
+                    params.isAllowed
                 }
             }
             steps {
