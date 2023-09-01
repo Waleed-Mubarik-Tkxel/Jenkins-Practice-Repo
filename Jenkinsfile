@@ -1,6 +1,7 @@
 pipeline {
     agent { docker { image 'php:8.2.8-alpine3.18' } }
     parameters {
+        string (name: "user", defualtValue: "Waleed Mubarik", description: "Admin user name")
         booleanParam (name: 'isAllowed', defaultValue: true, description: 'conditional is allowed')
         choice(name: 'BuildVersion', choices: ['2.0.0', '2.1.0'], description: 'versions')
     }
@@ -18,7 +19,7 @@ pipeline {
 
         stage('development') {
             steps {
-                echo 'development in progress '
+                echo "development in progress by ${params.user}"
                 echo BRANCH_NAME
             }
         }
