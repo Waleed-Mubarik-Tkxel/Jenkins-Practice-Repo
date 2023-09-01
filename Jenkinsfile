@@ -1,8 +1,8 @@
 pipeline {
     agent { docker { image 'php:8.2.8-alpine3.18' } }
     parameters {
-        booleanParam (name 'isAllowed', defaultValue: true, description: 'conditional is allowed')
-        choice(name 'BuildVersion': ['2.0.0', '2.1.0'], description: 'versions')
+        booleanParam (name: 'isAllowed', defaultValue: true, description: 'conditional is allowed')
+        choice(name: 'BuildVersion', choices: ['2.0.0', '2.1.0'], description: 'versions')
     }
     stages {
         stage('build') {
